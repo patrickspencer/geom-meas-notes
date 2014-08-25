@@ -1,0 +1,112 @@
+\section{Monday, August 25, 2014}
+
+\subsection{Review of measure theory}
+
+\begin{defn}
+  A \define{set function} is a mapping $\mu:P(x) \to Y$ where $Y$ is a
+  Banach space. $Y$ is usually $\mathbb{R}$ or $\mathbb{C}$.
+\end{defn}
+
+\begin{defn}
+  A set function is an \define{outer measure} if
+  \begin{enumerate}[(i)]
+    \item $\mu(A)\ge 0,\, \forall A\subseteq X, \mu(\emptyset)=0$
+    \item (monotonicity) If $A\sub B$ then $\mu(A)\le \mu(B)$.
+    \item (Subaditivity) Given a countable collection
+      $\{A_k\}_{k=1}^\infty$ of subsets of $X$,
+      \begin{equation*}
+        \mu(\cup_{k=1}^\infty A_k)\le \mu\left(\sum_{k=1}^\infty A_k\right)
+      \end{equation*}
+  \end{enumerate}
+\end{defn}
+
+\begin{fact}
+  Every outer measure includes a measure in the following way.
+\end{fact}
+
+\begin{defn}
+  Given an outmeasure $\mu$ a subset $E\sub X$ is \define{measurable} if
+  it satisfies the following \define{Caratheadory Criterion}: $\forall
+  A\sub X$ $\mu(A) = \mu(A\cap E)+\mu(A\sm E)$. Notice $A$ does not have
+  to necessarily be $\mu$-measurable.
+
+  Equivalently we have that $E$ is $\mu$-measurable iff
+  $\mu(A_1\cap A_2) = \mu(A_1)+\mu(A_2)$ whenever $\mu(A_2\sub E)$ and
+  $A_2\cap E=\eset$.
+\end{defn}
+
+\begin{prop}(exercise)
+  Let $\mu$ be an outer measure on $X$. If $\mu(Z) = 0$ then $Z$ is
+  $\mu$-measurable.
+\end{prop}
+\begin{note}
+  This says $\eset$ is measurable. This also says the $E^c$ is
+  measurable.
+\end{note}
+\begin{prop}
+  (exercise) Given an outer measure $\mu$ the collection of all
+  $\mu$-measurable sets forms a $\sigma$-algebra.
+\end{prop}
+
+\begin{defn}
+  An outer measure $\mu$ is a \define{mesaure} when restricted to its
+  measurable sets.
+\end{defn}
+
+\begin{thm}(exercise)
+  Suppose $\mu$ is an outer measure and that $\left\{ A_k
+  \right\}_{k=1}^\infty$ is a collection of $\mu$-measurable sets.
+  \begin{enumerate}
+    \item If $\left\{ A_k\right\}_{k=1}^\infty$ are pairwise disjoint then
+      $\sigma\left( \cup_{k=1}^\infty A_k \right) =
+      \sum_{k=1}^\infty\mu(A_k)$.
+    \item If $A_1 \sub \ldots A_k\sub A_{k+1} \sub \ldots$ then
+      $\lim_{k\to \infty}\mu(A_k) = \mu\left( \cup_{k=1}^\infty A_k
+      \right)$.
+    \item If $A_1 \supseteq A_2 \supseteq \ldots$ and $\mu(A_1) < \infty$ then
+      $\lim_{k\to \infty}\mu(A_k) = \mu(\cap_{k=1}^\infty A_k)$.
+  \end{enumerate}
+\end{thm}
+
+\begin{defn}
+  Suppose $X$ is a topological space. The \define{Borel
+  $\sigma$-algebra} is the smallest $\sigma$-alg. that contains all the
+  open set.
+\end{defn}
+
+\begin{defn}
+  A subest $A\sub X$ is $\sigma$-finite w.r.t.\ $\mu$ if
+  $A=\Cup_{k=1}^\infty B_k$ where $B_k$ is a $\mu$-measurable set and
+  $\mu(B_k)<\infty, \forall k$.
+\end{defn}
+
+\begin{defn}
+  \begin{enumerate}
+    \item $\mu$ is \define{regular} if \forall $A\sub X$ there exists a
+      $\mu$-measurable set $B$ so that $A\sub B$ and $\mu(A) = \mu(B)$.
+    \item $\mu$ is a \define{Borel} measure if every Borel set is
+      $\mu$-measurable.
+    \item $\mu$ is \define{Borel regular} if $\mu$ is Borel and
+      $\forall A\sub \mathbb{R}$ (or $X$) there exists a Borel set
+      $B$ with $A\sub B$ and $\mu(A)=\mu(B)$.
+    \item $\mu$ is a \define{Radon} measure if $\mu$ is Borel and if
+      $\mu(K)<\infty$ for every cpt set $K$.
+  \end{enumerate}
+\end{defn}
+
+\begin{thm}
+  Let $\mu$ be a regular measure on $X$. If $A_1\sub A_2 \sub \ldots$
+  then $\lim_{k\to \infty}\mu(A_k) = \mu\left( \cup_{k=1}^\infty A_k.
+  \right)$
+\end{thm}
+
+the significance of this theorem is that we are not requiring the $A_k$
+to be $\mu$-measurable.
+
+\begin{thm}
+  Suppose $\mu$ is a Borel regular on $\mathbb{R}^n$ and $A\sub
+  \mathbb{R}^n$ is $\mu$-measurable with $\mu(A)<\infty$. Then
+  $\mu\rvert_A$ is a Radon measure. Here $\mu\rvert_A$ is defined as
+  $\mu\rvert_A(B)= \mu(A\cap B)$.
+\end{thm}
+

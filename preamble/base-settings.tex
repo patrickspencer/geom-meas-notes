@@ -1,0 +1,42 @@
+% margins, size, formatting
+\headheight=15pt
+\headsep=.4in
+\footskip=.8in
+\usepackage[top=1.2in, bottom=1.6in, left=1.5in, right=1.5in]{geometry}
+\linespread{1.1}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}%
+
+% Packages
+\usepackage{amssymb,amsmath,amsthm,mathtools}
+\usepackage{enumerate}
+\usepackage{color,hyperref}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,
+    citecolor=blue,
+    % filecolor=black,
+    linkcolor=blue,
+    % urlcolor=black
+}
+
+% Script fonts
+% ------------
+% Set \mathcal to \mcal before we load eucal
+% so we have both script math alphabets
+\newcommand{\mcal}{} \let\mcal=\mathcal
+\usepackage{mathrsfs,eucal}
+\DeclareMathAlphabet{\mpzc}{OT1}{pzc}{m}{it}
+\DeclareMathAlphabet{\mathscrbf}{OMS}{mdugm}{b}{n}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Increase the number of explanatory lines per error
+\setcounter{errorcontextlines}{999}
+
+\numberwithin{equation}{section}
+
+\theoremstyle{definition}
+
+\makeindex

@@ -1,0 +1,41 @@
+% Letters
+\def\Z{\mathbb{Z}}
+\def\R{\mathbb{R}}
+\def\N{\mathbb{N}}
+\def\Q{\mathbb{Q}}
+\def\P{\textbf{P}}
+\def\E{\textbf{E}}
+\def\C{\mathbb{C}}
+\def\F{\mathbb{F}}
+\def\M{\mathfrak{M}}
+\def\O{\mcal{O}}
+\def\B{\mcal{B}}
+\def\K{\mathscr{K}}
+\def\S{\mathscr{S}}
+\def\L{\mathcal{L}}
+
+% Special multi-letter functions
+\def\sm{\setminus}
+\def\eset{\emptyset}
+\def\sub{\subseteq}
+\def\for{\quad\text{for all}\quad}
+\def\col{\!:\!}
+\def\phihat{\widehat{\phi}}
+
+% Commands
+\makeatletter
+\newcommand*{\deq}{\mathrel{\rlap{%
+                     \raisebox{0.27ex}{$\m@th\cdot$}}%
+                     \raisebox{-0.27ex}{$\m@th\cdot$}}%
+                     =}
+\makeatother
+\providecommand{\define}[1]{\textsl{#1}}
+\providecommand{\abs}[1]{\left\lvert#1\right\rvert}
+\providecommand{\babs}[1]{\Bigl\lvert\,#1\,\Bigr\rvert}
+\providecommand{\eunorm}[1]{\abs{#1}_2}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\set}[1]{\{1,\ldots,{#1}\}}
+\providecommand{\brac}[1]{\left\langle#1\right\rangle}
+\providecommand{\vl}[1]{\left\lvert#1\right\rvert}
+
+
