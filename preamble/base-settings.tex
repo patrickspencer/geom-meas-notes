@@ -4,12 +4,15 @@
 \footskip=.8in
 \usepackage[top=1.2in, bottom=1.6in, left=1.5in, right=1.5in]{geometry}
 \linespread{1.1}
+
+% replace indent on paragraphs with line breaks
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}%
 
 % Packages
 \usepackage{amssymb,amsmath,amsthm,mathtools}
 \usepackage{enumerate}
+\usepackage{glossaries} % for symbols appendix
 \usepackage{color,hyperref}
 \hypersetup{
     colorlinks=true, %set true if you want colored links
@@ -20,23 +23,26 @@
     % urlcolor=black
 }
 
-% Script fonts
-% ------------
 % Set \mathcal to \mcal before we load eucal
 % so we have both script math alphabets
 \newcommand{\mcal}{} \let\mcal=\mathcal
 \usepackage{mathrsfs,eucal}
+
+% Extra script font familes in case we need them
 \DeclareMathAlphabet{\mpzc}{OT1}{pzc}{m}{it}
 \DeclareMathAlphabet{\mathscrbf}{OMS}{mdugm}{b}{n}
 
+% Use improved computer modern font
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 
 % Increase the number of explanatory lines per error
 \setcounter{errorcontextlines}{999}
 
+% equations are numbered as chapter.section.number
 \numberwithin{equation}{section}
 
+% math environments doen't get printed in italics.
 \theoremstyle{definition}
 
 \makeindex

@@ -1,0 +1,117 @@
+\chapter{Review of measure theory}
+
+Most of the material in this chapter is from the book ``Measure Theory and Fine Properties of
+Functions''  by Evans and Gariepy \cite{evans1991measure}
+
+\section{Monday, August 25, 2014}
+
+\begin{defn}
+  A \define{set function} $f$ is a mapping $f:P(x) \to Y$ where $Y$ is a
+  Banach space. $Y$ is usually $\mathbb{R}$ or $\mathbb{C}$.
+\end{defn}
+
+\begin{defn}
+  A set function \gls{om} is an \define{outer measure} if
+  \begin{enumerate}[(i)]
+    \item $\om(A)\ge 0,\, \forall A\subseteq X, \om(\emptyset)=0$
+    \item (monotonicity) If $A\sub B$ then $\om(A)\le \om(B)$.
+    \item (Subaditivity) Given a countable collection
+      $\{A_k\}_{k=1}^\infty$ of subsets of $X$,
+      \begin{equation*}
+        \om\left(\bigcup_{k=1}^\infty A_k\right)\le \sum_{k=1}^\infty \om\left(A_k\right)
+      \end{equation*}
+  \end{enumerate}
+\end{defn}
+
+\begin{fact}
+  Every outer measure induces a measure in the following way.
+\end{fact}
+
+\begin{defn}
+  Given an outer measure $\om$ a subset $E\sub X$ is \define{$\om$-measurable} if
+  it satisfies the following \define{Caratheadory Criterion}: $\forall
+  A\sub X$ $\om(A) = \om(A\cap E)+\om(A\sm E)$. Notice $A$ does not have
+  to necessarily be $\om$-measurable.
+
+  Equivalently we have that $E$ is $\om$-measurable iff
+  $\om(A_1\cap A_2) = \om(A_1)+\om(A_2)$ whenever $\om(A_2\sub E)$ and
+  $A_2\cap E=\eset$.
+\end{defn}
+
+\begin{prop}(exercise)
+  Let $\om$ be an outer measure on $X$. If $\om(Z) = 0$ then $Z$ is
+  $\om$-measurable.
+\end{prop}
+\begin{note}
+  This says $\eset$ is measurable. This also says the $E^c$ is
+  measurable.
+\end{note}
+\begin{prop}
+  (exercise) Given an outer measure $\om$ the collection of all
+  $\om$-measurable sets forms a $\sigma$-algebra.
+\end{prop}
+
+\begin{defn}
+  A set function $\gls{meas}$ is called a \define{measure} if it is an outer measure $\om$ restricted to its
+  measurable sets.
+\end{defn}
+
+\begin{thm}(exercise)
+  Suppose $\om$ is an outer measure and that $\left\{ A_k
+  \right\}_{k=1}^\infty$ is a collection of $\om$-measurable sets.
+  \begin{enumerate}
+    \item If $\left\{ A_k\right\}_{k=1}^\infty$ are pairwise disjoint then
+      $\mu\left( \cup_{k=1}^\infty A_k \right) =
+      \sum_{k=1}^\infty\om(A_k)$.
+    \item If $A_1\sub A_2 \sub \ldots$ then
+      $\lim_{k\to \infty}\om(A_k) = \om\left( \cup_{k=1}^\infty A_k
+      \right)$.
+    \item If $A_1 \supseteq A_2 \supseteq \ldots$ and $\om(A_1) < \infty$ then
+      $\lim_{k\to \infty}\om(A_k) = \om(\cap_{k=1}^\infty A_k)$.
+  \end{enumerate}
+\end{thm}
+
+\begin{defn}
+  Suppose $X$ is a topological space. The \define{Borel
+  $\sigma$-algebra} is the smallest $\sigma$-algebra that contains all the
+  open set.
+\end{defn}
+
+\begin{defn}
+  A subest $A\sub X$ is $\sigma$-finite w.r.t.\ $\om$ if
+  $A=\bigcup_{k=1}^\infty B_k$ where $B_k$ is a $\om$-measurable set and
+  $\om(B_k)<\infty, \forall k$.
+\end{defn}
+
+\begin{defn}\mbox{}
+  \begin{enumerate}
+    \item $\om$ is \define{regular} if $\forall A\sub X$ there exists a
+      $\om$-measurable set $B$ so that $A\sub B$ and $\om(A) = \om(B)$.
+    \item $\om$ is a \define{Borel} measure if every Borel set is
+      $\om$-measurable.
+    \item $\om$ is \define{Borel regular} if $\om$ is Borel and
+      $\forall A\sub \mathbb{R}$ (or $X$) there exists a Borel set
+      $B$ with $A\sub B$ and $\om(A)=\om(B)$.
+    \item $\om$ is a \define{Radon} measure if $\om$ is Borel and if
+      $\om(K)<\infty$ for every compact set $K$.
+  \end{enumerate}
+\end{defn}
+
+\begin{thm}
+  Let $\om$ be a regular measure on $X$. If $A_1\sub A_2 \sub \ldots$
+  then $\lim_{k\to \infty}\om(A_k) = \om\left( \cup_{k=1}^\infty A_k.
+  \right)$
+\end{thm}
+
+\begin{remark}
+The significance of this theorem is that we are not requiring the $A_k$
+to be $\om$-measurable.
+\end{remark}
+
+\begin{thm}
+  Suppose $\om$ is a Borel regular on $\mathbb{R}^n$ and $A\sub
+  \mathbb{R}^n$ is $\om$-measurable with $\om(A)<\infty$. Then
+  $\om\rvert_A$ is a Radon measure. Here $\om\rvert_A$ is defined as
+  $\om\rvert_A(B)= \om(A\cap B)$.
+\end{thm}
+
