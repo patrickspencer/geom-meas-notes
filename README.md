@@ -14,11 +14,12 @@ Contributing
 
 I would love for other people to contribute to this document. If you know git
 you can send me a pull request through GitHub. If you don't know git then just
-send me whatever additions you would like me to add.
+email me whatever additions you would like me to add and I'll add your name to
+the contributors.
 
 License
 -------
-This material licensed under a Creative Commons Attribution 4.0 International
+This material is licensed under a Creative Commons Attribution 4.0 International
 license. This just means you can do whatever you like with the content as long
 as an attribution to this original work is included. It's really here just for
 techincal purposes about sharing code/original content on the web.
