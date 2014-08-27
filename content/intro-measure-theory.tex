@@ -1,9 +1,8 @@
 \chapter{Review of measure theory}
 
-Most of the material in this chapter is from the book ``Measure Theory and Fine Properties of
-Functions''  by Evans and Gariepy \cite{evans1991measure}
-
-\section{Monday, August 25, 2014}
+Most of the material in this chapter is from the book ``Measure Theory
+and Fine Properties of Functions'' by Evans and Gariepy
+\cite{evans1991measure}
 
 \begin{defn}
   A \define{set function} $f$ is a mapping $f:P(x) \to Y$ where $Y$ is a
@@ -11,28 +10,62 @@ Functions''  by Evans and Gariepy \cite{evans1991measure}
 \end{defn}
 
 \begin{defn}
-  A set function \gls{om} is an \define{outer measure} if
+  Let $X$ be a set. We let $P(X)$ denote the power set of $X$ i.e.\ the
+  set of all subsets of $X$.
+\end{defn}
+
+\begin{defn}
+  Let $X$ be a set. A subset $\mathfrak{M}\sub P(X)$ is called a
+  $\sigma$-algebra on $X$ if $\mathfrak{M}$ has the following properties:
+  \begin{enumerate}
+    \item $\emptyset \in \mathfrak{M}$ and $X\in \mathfrak{M}$.
+    \item $A\in \mathfrak{M}$ implies $A^c\in \mathfrak{M}$.
+    \item $\mu\left( \sum_{i=1}^\infty A_i \right) =
+      \sum_{i=1}^\infty\mu(A_i)$ whenever $\left\{ A_i
+      \right\}_{i=1}^\infty$ is a countable colelction of disjoint sets
+      in $ \mathfrak{M}$.
+  \end{enumerate}
+\end{defn}
+
+\begin{defn}
+  Suppose $X$ is a set and $\mathfrak{M}$ is a $\sigma$-algebra on
+  $X$. A set function $\mu: \mathfrak{M} \to [0,\infty]$ is called a
+  \define{measure} on $(X, \mathfrak{M})$ if $\mu$ has the following
+  properties:
+  \begin{enumerate}
+    \item $\mu(\emptyset)=0$
+    \item  $\mu(A)\le \sum_{i=1}^\infty \mu(A_k)$ whenever $A\sub
+      \bigcup_{i=1}^\infty A_k$.
+  \end{enumerate}
+\end{defn}
+
+A slightly more relaxed notion of a measure is what is called an outer measure.
+
+\begin{defn}
+  A set function $\gls{om}:P(X)\to [0,\infty]$ is called an \define{outer measure} if
   \begin{enumerate}[(i)]
-    \item $\om(A)\ge 0,\, \forall A\subseteq X, \om(\emptyset)=0$
-    \item (monotonicity) If $A\sub B$ then $\om(A)\le \om(B)$.
-    \item (Subaditivity) Given a countable collection
+    \item $\om(\emptyset) = 0$.
+    \item Given a countable collection
       $\{A_k\}_{k=1}^\infty$ of subsets of $X$,
       \begin{equation*}
-        \om\left(\bigcup_{k=1}^\infty A_k\right)\le \sum_{k=1}^\infty \om\left(A_k\right)
+        \om\left(\bigcup_{k=1}^\infty A_k\right)\le \sum_{k=1}^\infty
+        \om\left(A_k\right).
       \end{equation*}
   \end{enumerate}
 \end{defn}
 
-\begin{fact}
-  Every outer measure induces a measure in the following way.
-\end{fact}
+\begin{remark}
+If $\om$ is an outer measure then we have that $\om(A)\le \om(B)$
+whenever $A\sub B$ where $A,B\sub X$.
+\end{remark}
 
 \begin{defn}
-  Given an outer measure $\om$ a subset $E\sub X$ is \define{$\om$-measurable} if
-  it satisfies the following \define{Caratheadory Criterion}: $\forall
-  A\sub X$ $\om(A) = \om(A\cap E)+\om(A\sm E)$. Notice $A$ does not have
-  to necessarily be $\om$-measurable.
-
+  Given an outer measure $\om$ a subset $E\sub X$ is
+  \define{$\om$-measurable} if it satisfies the following
+  \define{Caratheadory Criterion}: 
+  \begin{equation}
+   \om(A) = \om(A\cap E)+\om(A\sm E), \for A\sub X.
+  \end{equation}
   Equivalently we have that $E$ is $\om$-measurable iff
   $\om(A_1\cap A_2) = \om(A_1)+\om(A_2)$ whenever $\om(A_2\sub E)$ and
   $A_2\cap E=\eset$.
@@ -42,19 +75,20 @@ Functions''  by Evans and Gariepy \cite{evans1991measure}
   Let $\om$ be an outer measure on $X$. If $\om(Z) = 0$ then $Z$ is
   $\om$-measurable.
 \end{prop}
+
 \begin{note}
-  This says $\eset$ is measurable. This also says the $E^c$ is
-  measurable.
+  This says $\eset$ is measurable.  
 \end{note}
+
 \begin{prop}
-  (exercise) Given an outer measure $\om$ the collection of all
+  (exercise) Given an outer measure $\om$, the collection of all
   $\om$-measurable sets forms a $\sigma$-algebra.
 \end{prop}
 
-\begin{defn}
-  A set function $\gls{meas}$ is called a \define{measure} if it is an outer measure $\om$ restricted to its
-  measurable sets.
-\end{defn}
+\begin{prop}(exercise)
+  Any outer measure $\om$ restricted to its measurable sets is a
+  measure.
+\end{prop}
 
 \begin{thm}(exercise)
   Suppose $\om$ is an outer measure and that $\left\{ A_k
@@ -66,24 +100,28 @@ Functions''  by Evans and Gariepy \cite{evans1991measure}
     \item If $A_1\sub A_2 \sub \ldots$ then
       $\lim_{k\to \infty}\om(A_k) = \om\left( \cup_{k=1}^\infty A_k
       \right)$.
-    \item If $A_1 \supseteq A_2 \supseteq \ldots$ and $\om(A_1) < \infty$ then
-      $\lim_{k\to \infty}\om(A_k) = \om(\cap_{k=1}^\infty A_k)$.
+    \item If $A_1 \supseteq A_2 \supseteq \ldots$ and $\om(A_1) <
+      \infty$ then $\lim_{k\to \infty}\om(A_k) = \om(\cap_{k=1}^\infty
+      A_k)$.
   \end{enumerate}
 \end{thm}
 
 \begin{defn}
   Suppose $X$ is a topological space. The \define{Borel
-  $\sigma$-algebra} is the smallest $\sigma$-algebra that contains all the
-  open set.
+  $\sigma$-algebra}, denoted $\mathfrak{B}_X$, is the smallest $\sigma$-algebra that contains all
+  the open set. This can be constructed by taking the intersection of
+  all $\sigma$-algebras on $X$ which contain the all open sets of
+  $X$.
 \end{defn}
 
 \begin{defn}
-  A subest $A\sub X$ is $\sigma$-finite w.r.t.\ $\om$ if
+  A subset $A\sub X$ is called $\sigma$-finite w.r.t.\ $\om$ if
   $A=\bigcup_{k=1}^\infty B_k$ where $B_k$ is a $\om$-measurable set and
   $\om(B_k)<\infty, \forall k$.
 \end{defn}
 
 \begin{defn}\mbox{}
+  Let $X$ be an arbitrary space and $\om$ an outer measure on $X$.
   \begin{enumerate}
     \item $\om$ is \define{regular} if $\forall A\sub X$ there exists a
       $\om$-measurable set $B$ so that $A\sub B$ and $\om(A) = \om(B)$.
@@ -97,8 +135,8 @@ Functions''  by Evans and Gariepy \cite{evans1991measure}
   \end{enumerate}
 \end{defn}
 
-\begin{thm}
-  Let $\om$ be a regular measure on $X$. If $A_1\sub A_2 \sub \ldots$
+\begin{thm}\cite[thm 2]{evans1991measure}
+  Let $\om$ be a regular outer measure on $X$. If $A_1\sub A_2 \sub \ldots$
   then $\lim_{k\to \infty}\om(A_k) = \om\left( \cup_{k=1}^\infty A_k.
   \right)$
 \end{thm}
@@ -108,10 +146,41 @@ The significance of this theorem is that we are not requiring the $A_k$
 to be $\om$-measurable.
 \end{remark}
 
-\begin{thm}
-  Suppose $\om$ is a Borel regular on $\mathbb{R}^n$ and $A\sub
+\begin{thm}\cite[thm 3]{evans1991measure}
+  Suppose $\om$ is a Borel regular outer measure on $\mathbb{R}^n$ and $A\sub
   \mathbb{R}^n$ is $\om$-measurable with $\om(A)<\infty$. Then
   $\om\rvert_A$ is a Radon measure. Here $\om\rvert_A$ is defined as
-  $\om\rvert_A(B)= \om(A\cap B)$.
+  $\om\rvert_A(B)= \om(A\cap B)$ for ever $B\sub X$.
 \end{thm}
+
+\begin{lemma}\cite[lemma 1]{evans1991measure}
+  Let $\om$ be a Borel regular outer measure on $ \mathbb{R}^n$. and let
+  $B\in \mathfrak{B}_X$.
+  \begin{enumerate}
+    \item If $\om < \infty$ then for every $\ep>0$ there exists a closed
+      set $C_\ep$ so that $C_\ep \sub B$ and $\om(B\sm C_\ep)<\ep$.
+    \item If $\om$ is a Radon outer measure, then for ever $\ep>0$ there
+      exists an open set $U_\ep$ so that $B\sub U_\ep$ and
+    $\om(B\sm U_\ep)< \ep$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{thm}\cite[thm 4]{evans1991measure}(Approximation by open and
+  compact sets)\\
+  Let $\om$ be a Radon outer measure on $\mathbb{R}^n$. Then
+  \begin{enumerate}
+    \item for each set $A\sub \mathbb{R}^n$
+      \begin{equation*}
+        \om(A) = \inf\left\{ \om(U):A\sub U, U \text{ is open} \right\},
+      \end{equation*}
+      and
+    \item for each $\om$-measurable set $A\sub \mathbb{R}^n$
+      \begin{equation*}
+        \om(A) = \sup\left\{ \om(K):K\sub A, K \text{ is compact}
+      \right\}.
+      \end{equation*}
+  \end{enumerate}
+\end{thm}
+
+
 
