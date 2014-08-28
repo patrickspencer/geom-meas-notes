@@ -15,16 +15,23 @@ and Fine Properties of Functions'' by Evans and Gariepy
 \end{defn}
 
 \begin{defn}
-  Let $X$ be a set. A subset $\mathfrak{M}\sub P(X)$ is called a
-  $\sigma$-algebra on $X$ if $\mathfrak{M}$ has the following properties:
+  Let $X$ be set. A non-empty subset $\mathfrak{M}\sub P(X)$ is called an
+  \define{algebra} on $X$ if $\mathfrak{M}$ has the following properties:
   \begin{enumerate}
-    \item $\emptyset \in \mathfrak{M}$ and $X\in \mathfrak{M}$.
     \item $A\in \mathfrak{M}$ implies $A^c\in \mathfrak{M}$.
-<<<<<<< HEAD
-    \item $A\in \mathfrak{M}$ whenever $A$ is the countable union of
-      sets $A_1,A_2,\ldots$ in $\mathfrak{M}$
+    \item If $n\in \N$ and $A_1,\ldots,A_n\in \mathfrak{M}$ then $
+      \bigcup_{i=1}^\infty A_i\in \mathfrak{M}$  
   \end{enumerate}
+  A \define{$\sigma$-algebra} is an algebra which is closed under countable
+  unions instead of finite unions.
 \end{defn}
+
+\begin{remark}
+  Notice that if $\mathfrak{M}$ is an algebra or a $\sigma$-algebra on
+  $X$ then $\emptyset\in \mathfrak{M}$ and $X\in \mathfrak{M}$ because
+  if $E\in \mathfrak{M}$ then $\emptyset = E\cap E^{c}$ and $X = E\cup
+  E^c$.
+\end{remark}
 
 \begin{defn}
   Suppose $X$ is a set and $\mathfrak{M}$ is a $\sigma$-algebra on
@@ -45,16 +52,13 @@ A slightly more relaxed notion of a measure is what is called an outer measure.
 \begin{defn}
   A set function $\gls{om}:P(X)\to [0,\infty]$ is called an \define{outer measure} if
   \begin{enumerate}
-    \item $\mu(\emptyset)=0$
-    \item  $\mu(A)\le \sum_{i=1}^\infty \mu(A_k)$ whenever $A\sub
-      \bigcup_{i=1}^\infty A_k$.
+    \item $\om(\emptyset)=0$
+    \item $\om(A) \le \om(B)$ if $A\sub B\sub X$,
+    \item  $\om\left( \bigcup_{i=1}^\infty A_i \right)\le
+      \sum_{i=1}^\infty \om(A_k)$ whenever $\left\{ A_i
+      \right\}_{i=1}^\infty\sub P(X)$.
   \end{enumerate}
 \end{defn}
-
-\begin{remark}
-If $\om$ is an outer measure then we have that $\om(A)\le \om(B)$
-whenever $A\sub B$ where $A,B\sub X$.
-\end{remark}
 
 \begin{defn}
   Given an outer measure $\om$ a subset $E\sub X$ is
@@ -81,6 +85,12 @@ whenever $A\sub B$ where $A,B\sub X$.
   (exercise) Given an outer measure $\om$, the collection of all
   $\om$-measurable sets forms a $\sigma$-algebra.
 \end{prop}
+
+\begin{defn}
+  Denote the $\sigma$-algebra of $\om$-mesaurable sets as
+  $\mathfrak{M}_{\om}$.
+  
+\end{defn}
 
 \begin{prop}(exercise)
   Any outer measure $\om$ restricted to its measurable sets is a
@@ -113,21 +123,21 @@ whenever $A\sub B$ where $A,B\sub X$.
 
 \begin{defn}
   A subset $A\sub X$ is called $\sigma$-finite w.r.t.\ $\om$ if
-  $A=\bigcup_{k=1}^\infty B_k$ where $B_k$ is a $\om$-measurable set and
-  $\om(B_k)<\infty, \forall k$.
+  $A=\bigcup_{k=1}^\infty B_k$ where $\left\{ B_i \right\}_{i=1}^\infty\sub \mom$ and
+  $\om(B_i)<\infty, \forall i$.
 \end{defn}
 
 \begin{defn}\mbox{}
   Let $X$ be an arbitrary space and $\om$ an outer measure on $X$.
   \begin{enumerate}
     \item $\om$ is \define{regular} if $\forall A\sub X$ there exists a
-      $\om$-measurable set $B$ so that $A\sub B$ and $\om(A) = \om(B)$.
+      $B\in\mom$ so that $A\sub B$ and $\om(A) = \om(B)$.
     \item $\om$ is a \define{Borel} measure if every Borel set is
       $\om$-measurable.
     \item $\om$ is \define{Borel regular} if $\om$ is Borel and
       $\forall A\sub \mathbb{R}$ (or $X$) there exists a Borel set
       $B$ with $A\sub B$ and $\om(A)=\om(B)$.
-    \item $\om$ is a \define{Radon} measure if $\om$ is Borel and if
+    \item $\om$ is a \define{Radon} measure if $\om$ is Borel regular and if
       $\om(K)<\infty$ for every compact set $K$.
   \end{enumerate}
 \end{defn}
@@ -143,11 +153,15 @@ The significance of this theorem is that we are not requiring the $A_k$
 to be $\om$-measurable.
 \end{remark}
 
+\begin{defn}
+  Let $\om\rvert_A$ be defined as
+  $\om\rvert_A(B)= \om(A\cap B)$ for ever $B\sub X$.
+\end{defn}
+
 \begin{thm}\cite[thm 3]{evans1991measure}
   Suppose $\om$ is a Borel regular outer measure on $\mathbb{R}^n$ and $A\sub
   \mathbb{R}^n$ is $\om$-measurable with $\om(A)<\infty$. Then
-  $\om\rvert_A$ is a Radon measure. Here $\om\rvert_A$ is defined as
-  $\om\rvert_A(B)= \om(A\cap B)$ for ever $B\sub X$.
+  $\om\rvert_A$ is a Radon measure. 
 \end{thm}
 
 \begin{lemma}\cite[lemma 1]{evans1991measure}
@@ -179,3 +193,8 @@ to be $\om$-measurable.
   \end{enumerate}
 \end{thm}
 
+\begin{thm}\cite[thm 5]{evans1991measure}(Caratheodory's Criterion)
+  Let $\om$ be an outer measure on $ \mathbb{R}^n$. If $\om(A\cup B) =
+  \om(A)+\om(B)$ for all sets $A,B\sub \mathbb{R}^n$ with
+  $\text{dist}(A,B)>0$, then $\om$ is a Borel outer measure.
+\end{thm}
