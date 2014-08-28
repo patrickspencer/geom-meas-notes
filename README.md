@@ -5,9 +5,18 @@ These are notes taken at the University of Missouri Columbia during the Fall
 2014 semester for the class Math 8302 - Topics in Harmonic Analysis -
 Introduction to Geomtric Measure Theory and Quantitative Rectifiability.
 
-This is a latex document based on the amsbook template which uses the following
-packages: amssymb, amsmath, amsthm, mathtools, enumerate, glossaries, color,
-hyperref, geometry, mathrsfs, eucal, lmodern.
+A hardcopy can be found here:
+[http://github.com/patrickspencer/geom-meas-notes/blob/master/main.pdf?raw=true](http://github.com/patrickspencer/geom-meas-notes/blob/master/main.pdf?raw=truef)
+
+Compiling
+---------
+
+This is a standard latex document based on the amsbook template, so it should
+be compilable as long as you have some standard latex distribution on your
+computer.
+
+It has the following package dependencies: amssymb, amsmath, amsthm, mathtools,
+enumerate, glossaries, color, hyperref, geometry, mathrsfs, eucal, lmodern.
 
 Contributing
 ------------
@@ -16,10 +25,3 @@ I would love for other people to contribute to this document. If you know git
 you can send me a pull request through GitHub. If you don't know git then just
 email me whatever additions you would like me to add and I'll add your name to
 the contributors.
-
-License
--------
-This material is licensed under a Creative Commons Attribution 4.0 International
-license. This just means you can do whatever you like with the content as long
-as an attribution to this original work is included. It's really here just for
-techincal purposes about sharing code/original content on the web.
