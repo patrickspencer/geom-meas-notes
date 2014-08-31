@@ -1,5 +1,8 @@
 \chapter{Review of measure theory}
 
+\section{Outer Measures}
+\label{sec:measure_theory}
+
 Most of the material in this chapter is from the book ``Measure Theory
 and Fine Properties of Functions'' by Evans and Gariepy
 \cite{evans1991measure}
@@ -20,7 +23,7 @@ and Fine Properties of Functions'' by Evans and Gariepy
   \begin{enumerate}
     \item $A\in \mathfrak{M}$ implies $A^c\in \mathfrak{M}$.
     \item If $n\in \N$ and $A_1,\ldots,A_n\in \mathfrak{M}$ then $
-      \bigcup_{i=1}^\infty A_i\in \mathfrak{M}$  
+      \bigcup_{i=1}^\infty A_i\in \mathfrak{M}$
   \end{enumerate}
   A \define{$\sigma$-algebra} is an algebra which is closed under countable
   unions instead of finite unions.
@@ -89,7 +92,7 @@ A slightly more relaxed notion of a measure is what is called an outer measure.
 \begin{defn}
   Denote the $\sigma$-algebra of $\om$-mesaurable sets as
   $\mathfrak{M}_{\om}$.
-  
+
 \end{defn}
 
 \begin{prop}(exercise)
@@ -142,7 +145,7 @@ A slightly more relaxed notion of a measure is what is called an outer measure.
   \end{enumerate}
 \end{defn}
 
-\begin{thm}\cite[thm 2]{evans1991measure}
+\begin{thm}\cite[sec 1.1]{evans1991measure}
   Let $\om$ be a regular outer measure on $X$. If $A_1\sub A_2 \sub \ldots$
   then $\lim_{k\to \infty}\om(A_k) = \om\left( \cup_{k=1}^\infty A_k.
   \right)$
@@ -158,13 +161,13 @@ to be $\om$-measurable.
   $\om\rvert_A(B)= \om(A\cap B)$ for ever $B\sub X$.
 \end{defn}
 
-\begin{thm}\cite[thm 3]{evans1991measure}
+\begin{thm}\cite[sec 1.1]{evans1991measure}
   Suppose $\om$ is a Borel regular outer measure on $\mathbb{R}^n$ and $A\sub
   \mathbb{R}^n$ is $\om$-measurable with $\om(A)<\infty$. Then
-  $\om\rvert_A$ is a Radon measure. 
+  $\om\rvert_A$ is a Radon measure.
 \end{thm}
 
-\begin{lemma}\cite[lemma 1]{evans1991measure}
+\begin{lemma}\cite[sec 1.1]{evans1991measure}
   Let $\om$ be a Borel regular outer measure on $ \mathbb{R}^n$. and let
   $B\in \mathfrak{B}_X$.
   \begin{enumerate}
@@ -176,7 +179,7 @@ to be $\om$-measurable.
   \end{enumerate}
 \end{lemma}
 
-\begin{thm}\cite[thm 4]{evans1991measure}(Approximation by open and
+\begin{thm}\cite[sec 1.1]{evans1991measure}(Approximation by open and
   compact sets)\\
   Let $\om$ be a Radon outer measure on $\mathbb{R}^n$. Then
   \begin{enumerate}
@@ -193,8 +196,120 @@ to be $\om$-measurable.
   \end{enumerate}
 \end{thm}
 
-\begin{thm}\cite[thm 5]{evans1991measure}(Caratheodory's Criterion)
+\begin{thm}\cite[sec 1.1]{evans1991measure}(Caratheodory's Criterion)
   Let $\om$ be an outer measure on $ \mathbb{R}^n$. If $\om(A\cup B) =
   \om(A)+\om(B)$ for all sets $A,B\sub \mathbb{R}^n$ with
   $\text{dist}(A,B)>0$, then $\om$ is a Borel outer measure.
 \end{thm}
+
+% end section 'sec:measure_theory'
+
+\section{Covering Lemmas}
+\label{sec:covering_lemmas}
+
+\begin{thm}[Vitali's covering lemma]\cite[sec 1.5.1]{evans1991measure}
+Let $\mcal{F}$ be an collection of nondegenerate closed balls in
+$\mathbb{R}^n$ with $\sup\left\{ \text{diam}(B) | B\in \mcal{F} \right\}
+< \infty$.
+  Then there exists a countable family $\mcal{G}$ of disjoint balls
+  in $\mcal{F}$ such that
+  \begin{equation*}
+    \bigcup_{B\in \mcal{F}}B \sub \bigcup_{B\in
+      \mcal{G}}5B.
+  \end{equation*}
+\end{thm}
+
+If $\om$ is an arbitrary Radon outer measure on
+$\mathbb{R}^n$, we can't always control $\om(5B)$ in terms of
+$\om(B)$. So instead of enlarging the balls to cover the space we
+try to control the number of overlaps by a constant which depends
+only on the dimension. This is the content of the next theorem.
+
+\begin{thm}(Besicovitch's covering theorem
+    )\cite[sec 1.5.2]{evans1991measure}
+  There exists a constant $M=M_n\in \mathbb{N}$ depending only on $n$, with the
+  following property: If $\mcal{F}$ is any collection of
+  nondegenerate closed balls in $\mathbb{R}^n$ with
+  \begin{equation*}
+    \sup\left\{ \text{diam}(B) | B\in \mcal{F} \right\}
+< \infty
+  \end{equation*}
+  and if $\mcal{A}$ is the set of centers of balls in $\mcal{F}$,
+  then there exist $\mcal{G}_1,\ldots,\mcal{G}_{M} \sub \mcal{F}$
+  such that $\mcal{G}_i$ ($i=1,\ldots,M)$ is a countable collection
+  of disjoint balls in $\mcal{F}$ and
+  \begin{equation*}
+    \mcal{A} \sub \bigcup_{i=1}^M\bigcup_{B\in \mcal{G}_i}B.
+  \end{equation*}
+\end{thm}
+
+The following decompostion/covering theorem says you can cover an
+arbitrary nonempty open set $\mathbb{R}^n$ with closed cubes whose side
+lengths are proportional to the cube's distance to the boundaries
+of the set. Also the number of neighboring cubes of any given cube is bounded according
+to the cube's side length.
+
+\begin{thm}(Whitney
+  decomposition)\cite[appendix J]{grafakos2008classical}
+  Let $\Omega$ be an open, nonempty, proper subset of
+  $\mathbb{R}^n$. Then there exists family of closed cubes $\left\{
+  Q_j \right\}_{j}$ such that
+  \begin{enumerate}
+    \item $\bigcup_j Q_j = \Omega$ and the $Q_j$'s have disjoint
+      interiors.
+    \item $\sqrt{n}\ell(Q_j)\le
+      \text{dist}(Q_j,\Omega^c) \le 4\sqrt{n}\ell(Q_j)$.
+    \item If the boundaries of two cubes $Q_j$ and $Q_k$ touch then
+      \begin{equation*}
+        \frac{1}{4} \le \frac{\ell(Q_j)}{\ell(Q_k)} \le 4.
+      \end{equation*}
+    \item For a given $Q_j$ there exists at most $12^n$ $Q_k$'s
+      that touch it.
+  \end{enumerate}
+
+\end{thm}
+
+% end section 'sec:covering_lemmas'
+
+\section{Hausdorff Measure}
+\label{sec:hausdorff_measure}
+
+This section follows section of 2.1 of
+\cite{evans1991measures}.
+
+\begin{defn}
+  \begin{enumerate}\mbox{}
+    \item Let $A\sub \mathbb{R}^n$, $0\le s < \infty$, $\delta \le \infty$.
+    Define
+    \begin{equation*}
+      \mcal{H}_\delta^s \deq \inf\left\{ \sum_{j=1}^\infty
+      \alpha(s)\left( \frac{\text{diam}(C_j)}{2} \right)^s : A\sub
+      \bigcup_{j=1}^\infty C_j, \text{diam}(C_j) \le \delta  \right\}
+    \end{equation*}
+    where
+    \begin{equation*}
+      \alpha(s) \deq \frac{\pi^{s/2}}{\Gamma\left(\frac{s}{2}+1\right)}.
+    \end{equation*}
+    Here $\Gamma$ is the Gamma function of complex analysis.
+    \item For $A$ and $s$ as above, define
+      \begin{equation*}
+        \mcal{H}^s \deq \lim_{\delta\to 0}\mcal{H}_{\delta}^{s}(A) =
+        \sup_{\delta > 0}\mcal{H}_{\delta}^s(A).
+      \end{equation*}
+      We call $\mcal{H}^s$ the \define{$s$-dimensional Hausdorff measure}.
+  \end{enumerate}
+\end{defn}
+\begin{remark}\mbox{}
+  \begin{enumerate}
+    \item Notice that $\mcal{L}^n\left( B(x,r) \right) =
+      \alpha(n)r^n$
+      for all balls $B(x,r)\sub \mathbb{R}^n$. We will see later that
+      if $s=k$ is an integer $\mcal{H}^k$ agrees with the ordinary
+      ``$k$-dimensional surface area'' on nice sets. This is the reason
+      we include the normalizing constant $\alpha(s)$, in the
+      definition.
+  \end{enumerate}
+\end{remark}
+
+
+% end section 'sec:hausdorff_measure'
