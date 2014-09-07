@@ -26,3 +26,9 @@ I would love for other people to contribute to this document. If you know git
 you can send me a pull request through GitHub. If you don't know git then just
 email me whatever additions you would like me to add and I'll add your name to
 the contributors.
+
+License
+-------
+
+The source code is released under the MIT License while the content is released
+under the Creative Commons Attribution 4.0 International License.
